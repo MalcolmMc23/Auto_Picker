@@ -16,14 +16,14 @@ public class App implements AncestorListener, java.awt.event.ActionListener {
 
     int clicks = 0;
     // ################
-    int ready_X = 400;// ! change to the x,y of ready in val
-    int ready_Y = 400;
+    int ready_X = 100;// ! change to the x,y of ready in val
+    int ready_Y = 100;
 
-    int jett_X = 200; // ! change to the x,y of jett in val
-    int jett_Y = 400;
+    int jett_X = 800; // ! change to the x,y of jett in val
+    int jett_Y = 800;
 
-    int fade_X = 200;// ! change to the x,y of jett in val
-    int fade_Y = 400;
+    int fade_X = 0;// ! change to the x,y of jett in val
+    int fade_Y = 0;
     // ###############
 
     private JLabel label;
@@ -41,17 +41,17 @@ public class App implements AncestorListener, java.awt.event.ActionListener {
         JButton jettButt = new JButton(new AbstractAction("Jett") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i < 50; i++) {
+                for (int i = 0; i < 20; i++) {
                     try {
                         robot.mouseMove(jett_X, jett_Y);
                         robot.mousePress(button);
-                        Thread.sleep(1);
+                        Thread.sleep(100);
                         robot.mouseRelease(button);
                         clicks++;
 
                         robot.mouseMove(ready_X, ready_Y);
                         robot.mousePress(button);
-                        Thread.sleep(1);
+                        Thread.sleep(100);
                         robot.mouseRelease(button);
                         clicks++;
                         label.setText("number of clicks: " + clicks);
@@ -68,17 +68,17 @@ public class App implements AncestorListener, java.awt.event.ActionListener {
         JButton fadeButt = new JButton(new AbstractAction("Fade") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i < 50; i++) {
+                for (int i = 0; i < 20; i++) {
                     try {
                         robot.mouseMove(fade_X, fade_Y);
                         robot.mousePress(button);
-                        Thread.sleep(1);
+                        Thread.sleep(100);
                         robot.mouseRelease(button);
                         clicks++;
 
                         robot.mouseMove(ready_X, ready_Y);
                         robot.mousePress(button);
-                        Thread.sleep(1);
+                        Thread.sleep(100);
                         robot.mouseRelease(button);
                         clicks++;
                         label.setText("number of clicks: " + clicks);
