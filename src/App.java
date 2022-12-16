@@ -2,6 +2,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
+import java.util.EventListener;
 
 import javax.swing.JPanel;
 import javax.swing.event.AncestorEvent;
@@ -15,15 +16,17 @@ import javax.swing.JLabel;
 public class App implements AncestorListener, java.awt.event.ActionListener {
 
     int clicks = 0;
+    int buttClicks = 0;
     // ################
-    int ready_X = 100;// ! change to the x,y of ready in val
-    int ready_Y = 100;
+    int ready_X = 200;// ! change to the x,y of ready in val
+    int ready_Y = 200;
 
     int jett_X = 800; // ! change to the x,y of jett in val
     int jett_Y = 800;
 
-    int fade_X = 0;// ! change to the x,y of jett in val
-    int fade_Y = 0;
+    int fade_X = 100;// ! change to the x,y of jett in val
+    int fade_Y = 200;
+
     // ###############
 
     private JLabel label;
@@ -41,23 +44,26 @@ public class App implements AncestorListener, java.awt.event.ActionListener {
         JButton jettButt = new JButton(new AbstractAction("Jett") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i < 20; i++) {
-                    try {
-                        robot.mouseMove(jett_X, jett_Y);
-                        robot.mousePress(button);
-                        Thread.sleep(100);
-                        robot.mouseRelease(button);
-                        clicks++;
+                buttClicks++;
+                if (buttClicks < 2) {
+                    for (int i = 0; i < 20; i++) {
+                        try {
+                            robot.mouseMove(jett_X, jett_Y);
+                            robot.mousePress(button);
+                            Thread.sleep(100);
+                            robot.mouseRelease(button);
+                            clicks++;
 
-                        robot.mouseMove(ready_X, ready_Y);
-                        robot.mousePress(button);
-                        Thread.sleep(100);
-                        robot.mouseRelease(button);
-                        clicks++;
-                        label.setText("number of clicks: " + clicks);
-                    } catch (InterruptedException e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
+                            robot.mouseMove(ready_X, ready_Y);
+                            robot.mousePress(button);
+                            Thread.sleep(100);
+                            robot.mouseRelease(button);
+                            clicks++;
+                            label.setText("number of clicks: " + clicks);
+                        } catch (InterruptedException e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                        }
                     }
                 }
             }
@@ -68,23 +74,26 @@ public class App implements AncestorListener, java.awt.event.ActionListener {
         JButton fadeButt = new JButton(new AbstractAction("Fade") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i < 20; i++) {
-                    try {
-                        robot.mouseMove(fade_X, fade_Y);
-                        robot.mousePress(button);
-                        Thread.sleep(100);
-                        robot.mouseRelease(button);
-                        clicks++;
+                buttClicks++;
+                if (buttClicks < 2) {
+                    for (int i = 0; i < 20; i++) {
+                        try {
+                            robot.mouseMove(fade_X, fade_Y);
+                            robot.mousePress(button);
+                            Thread.sleep(100);
+                            robot.mouseRelease(button);
+                            clicks++;
 
-                        robot.mouseMove(ready_X, ready_Y);
-                        robot.mousePress(button);
-                        Thread.sleep(100);
-                        robot.mouseRelease(button);
-                        clicks++;
-                        label.setText("number of clicks: " + clicks);
-                    } catch (InterruptedException e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
+                            robot.mouseMove(ready_X, ready_Y);
+                            robot.mousePress(button);
+                            Thread.sleep(100);
+                            robot.mouseRelease(button);
+                            clicks++;
+                            label.setText("number of clicks: " + clicks);
+                        } catch (InterruptedException e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                        }
                     }
                 }
             }
